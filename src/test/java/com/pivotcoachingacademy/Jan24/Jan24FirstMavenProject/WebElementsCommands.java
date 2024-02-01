@@ -89,22 +89,30 @@ public class WebElementsCommands {
 		WebElement userEmail = driver.findElement(By.id("userEmail"));
 		WebElement address = driver.findElement(By.id("currentAddress"));
 		WebElement pAddress = driver.findElement(By.id("permanentAddress"));
-
 		userName.sendKeys("Manvir");
 		userEmail.sendKeys("abc@gmail.com");
 		address.sendKeys("Canada");
-		pAddress.sendKeys("India");
-		
+		pAddress.sendKeys("India");		
 		WebElement submitBtn= driver.findElement(By.id("submit"));
-		submitBtn.click();
+		submitBtn.click();		
+		WebElement enteredName=driver.findElement(By.id("name"));		
+		String enteredNameText=enteredName.getText();		
+		System.out.println(enteredNameText);	
+	}
+	
+	@Test
+	public void clearCommand() {
+
+		WebElement userName = driver.findElement(By.id("userName"));
+		WebElement userEmail = driver.findElement(By.id("userEmail"));
+		WebElement address = driver.findElement(By.id("currentAddress"));
+		WebElement pAddress = driver.findElement(By.id("permanentAddress"));
+		userName.sendKeys("Manvir");
+		userEmail.sendKeys("abc@gmail.com");
+		address.sendKeys("Canada");
+		pAddress.sendKeys("India");	
 		
-		WebElement enteredName=driver.findElement(By.id("name"));
-		
-		String enteredNameText=enteredName.getText();
-		
-		System.out.println(enteredNameText);
-		
-		
-		
+		pAddress.clear();
+
 	}
 }
