@@ -1,15 +1,17 @@
 package com.pivotcoachingacademy.Jan24.Jan24FirstMavenProject;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class SelectExample {
+public class DynamicWait {
 	EdgeDriver driver = null;
 
 	@BeforeMethod
@@ -20,39 +22,43 @@ public class SelectExample {
 
 		// Launch the browser instance
 		driver = new EdgeDriver();
+		
+		//Implicit Wait
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
+		driver.manage().window().maximize();
 
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
+		driver.get("https://account.carbonite.com/account/logon?ReturnUrl=%2f");
 	}
 
 	@Test
 	public void selectTest() {
 
-		WebElement email = driver.findElement(By.id("input-email"));
-		WebElement pwd = driver.findElement(By.id("input-password"));
-		WebElement loginBtn = driver.findElement(By.cssSelector("input[type='submit']"));
+		WebElement email = driver.findElement(By.id("email"));
+		WebElement pwd = driver.findElement(By.id("Password"));
+		WebElement loginBtn = driver.findElement(By.id("vueloginButton"));
 
-		email.sendKeys("mansan@gmail.com");
+		email.sendKeys("mansan@it.com");
 		pwd.sendKeys("Password1");
 		loginBtn.submit();
+		
+		WebElement bannerBtn=driver.findElement(By.id("onetrust-accept-btn-handler"));
+		bannerBtn.click();
+		
 
-		WebElement addressBtn = driver.findElement(By.cssSelector("#column-right>div>a:nth-of-type(4)"));
-		addressBtn.click();
+		WebElement download = driver.findElement(By.cssSelector("#ulDesktopSideNav li:nth-of-type(5)"));
+		download.click();
 
-		WebElement newAddressBtn = driver.findElement(By.cssSelector("#content div.pull-right a"));
-		newAddressBtn.click();
+		WebElement addKeycodeBtn = driver.findElement(By.cssSelector("section.keycodes #btnAddKeycode"));
+		addKeycodeBtn.click();
 
-		WebElement country = driver.findElement(By.id("input-country"));
-
-		Select select = new Select(country);
-
-		// Select By Index
-		select.selectByIndex(4);
-
-		// select by Value
-		select.selectByValue("13");
-
-		// select By Visible Text
-		select.selectByVisibleText("Bangladesh");
+		WebElement enterKeycodeInput = driver.findElement(By.id("enter-keycode"));
+		enterKeycodeInput.sendKeys("AAAAAAAAAAAAAAAAAAAA");
+		
+		WebElement addBtn=driver.findElement(By.id("btnAddChanges"));
+		addBtn.click();
+			
+		
 	}
 
 	@Test
