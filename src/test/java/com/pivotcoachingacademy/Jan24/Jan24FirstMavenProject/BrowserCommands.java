@@ -1,7 +1,5 @@
 package com.pivotcoachingacademy.Jan24.Jan24FirstMavenProject;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
