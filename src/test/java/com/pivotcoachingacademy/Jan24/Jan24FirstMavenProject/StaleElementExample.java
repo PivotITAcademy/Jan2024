@@ -13,7 +13,7 @@ public class StaleElementExample {
 	public void intialisation() {
 		// Setting the path to the respective driver
 		System.setProperty("webdriver.edge.driver",
-				"C:\\Users\\Owner\\Downloads\\edgedriver_win64 (4)\\msedgedriver.exe");
+				"C:\\\\Users\\\\Owner\\\\Downloads\\\\edgedriver_win64 (4)\\\\msedgedriver.exe");
 
 		// Launch the browser instance
 		driver = new EdgeDriver();
