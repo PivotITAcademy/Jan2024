@@ -99,6 +99,7 @@ public class Basil {
 			billingContinue.click();
 
 			WebElement termsAndConditionRadioBtn = driver.findElement(By.xpath("//*[@name='agree']"));
+		
 			termsAndConditionRadioBtn.click();
 
 		}
